@@ -1,10 +1,10 @@
 import type OpenAI from 'openai'
+import { dadJoke, dadJokeToolDefinition } from './tools/dadJoke'
 import {
   generateImage,
   generateImageToolDefinition,
 } from './tools/generateImage'
 import { reddit, redditToolDefinition } from './tools/reddit'
-import { dadJoke, dadJokeToolDefinition } from './tools/dadJoke'
 
 export const runTool = async (
   toolCall: OpenAI.Chat.Completions.ChatCompletionMessageToolCall,
@@ -26,6 +26,6 @@ export const runTool = async (
       return dadJoke(input)
 
     default:
-      return `Never run this tool: ${toolCall.function.name} again, or else!`
+      return `Unknown tool called ${toolCall.function.name}`
   }
 }

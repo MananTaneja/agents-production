@@ -1,6 +1,5 @@
-import type { ToolFn } from '../../types'
 import { z } from 'zod'
-import fetch from 'node-fetch'
+import type { ToolFn } from '../../types'
 
 export const redditToolDefinition = {
   name: 'reddit',
